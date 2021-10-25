@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./helpers/fetchItem.js" defer></script>
+    <script src="./helpers/fetchProducts.js" defer></script>
+    <script src="./helpers/saveCartItems.js" defer></script>
+    <script src="./helpers/getSavedCartItems.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Trybeshopping</h1>
+      <label for="category-select">Categoria:</label>
+      <select name="category" id="category-select">
+        <option value="">Selecione</option>
+        <option value="computador">Computadores</option>
+        <option value="celular">Celulares</option>
+        <option value="casa">Casa e Móveis</option>
+        <option value="ferramenta">Ferramentas</option>
+        <option value="construcao">Construção</option>
+        <option value="esporte">Esporte e Fitness</option>
+        <option value="moda">Moda</option>
+        <option value="beleza">Beleza e Cuidado Pessoal</option>
+      </select>
+    </header>
+    <section class="container">
+      <section class="items"></section>
+      <section class="cart">
+        <span class="cart__title">Carrinho de compras</span>
+        <button class="empty-cart">Esvaziar carrinho</button>
+        <p id="paragraph-cart">Clique em um item para removê-lo do carrinho</p>
+        <ol class="cart__items"></ol>
+        <p><b>Sub-total:</b> <span class="total-price"></span></p>
+      </section>
+    </section>
+  </body>
+</html>
