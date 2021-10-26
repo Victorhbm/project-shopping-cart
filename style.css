@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #FFFAFF;
@@ -6,11 +11,17 @@ body {
 header {
   margin-bottom: 20px;
   padding: 20px;
-  background-color: #FC5130;
+  background-color: #163440;
+  color: #FFFAFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
 }
 
 header #category-select {
@@ -18,6 +29,11 @@ header #category-select {
   background-color: #FFFAFF;
   border-radius: 3px;
   padding: 3px;
+}
+
+header #btn-cart {
+  display: none;
+  padding: 5px;
 }
 
 .container {
@@ -34,7 +50,7 @@ header #category-select {
 }
 
 .item {
-  border: 2px solid #FC5130;
+  border: 2px solid #163440;
   border-radius: 5px;
   box-sizing: border-box;
   display: flex;
@@ -64,9 +80,10 @@ header #category-select {
 }
 
 .item .item__add {
-  background-color: #FC5130;
+  background-color: #163440;
   border: 0;
   cursor: pointer;
+  color: #FFFAFF;
   margin: 0;
   padding: 5px;
 }
@@ -90,23 +107,68 @@ header #category-select {
   flex-basis: 1;
   font-size: 16pt;
   text-align: center;
+  margin-bottom: 10px;
+}
+
+.cart .empty-cart {
+  margin-bottom: 10px;
+  background-color: #A4B8BF;
+  border: none;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.cart .empty-cart:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .cart__items {
   padding: 0;
-  margin: 0;
+  margin: 10px 0px;
 }
 
 .cart__item {
   display: flex;
   flex-wrap: nowrap;
   margin-bottom: 5px;
-  padding: 5px;
+  padding: 10px;
   border-bottom: 2px solid grey;
+}
+
+.cart__item .cart-paragraph {
+  margin-bottom: 10px;
 }
 
 .cart-img {
   margin-right: 20px;
   height: 50px;
   align-self: center;
+}
+
+@media screen and (max-width: 800px) {
+  header #btn-cart {
+    display: block;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  .cart {
+    display: none;
+    flex-basis: 100%;
+    flex-flow: column wrap;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  header {
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 10px;
+    height: 130px;
+  }
 }

@@ -1,8 +1,10 @@
 const getCartItemsOL = document.querySelector('.cart__items');
 const getItemsSection = document.querySelector('.items');
+const getCartSection = document.querySelector('.cart');
 const getButtonEmptyCart = document.querySelector('.empty-cart');
 const getTotalPriceSpan = document.querySelector('.total-price');
 const getSelectInput = document.getElementById('category-select');
+const getBtnCart = document.getElementById('btn-cart');
 
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -75,7 +77,7 @@ function cartItemClickListener(event) {
 function createCartItemElement({ thumbnail, title, price }) {
   const li = document.createElement('li');
   li.className = 'cart__item';
-  li.innerHTML = `<img src="${thumbnail}" alt="imagem produto" class="cart-img"></img> <div><p>${title}</p> <p>R$ <span class="prices">${price.toLocaleString('pt-br', {minimumFractionDigits: 2})}</span></p></div>`;
+  li.innerHTML = `<img src="${thumbnail}" alt="imagem produto" class="cart-img"></img> <div><p class="cart-paragraph">${title}</p> <p>R$ <span class="prices">${price.toLocaleString('pt-br', {minimumFractionDigits: 2})}</span></p></div>`;
   li.addEventListener('click', cartItemClickListener);
   return li;
 }
@@ -127,6 +129,18 @@ getSelectInput.addEventListener('change', () => {
     showProductItems(getSelectInput.options[getSelectInput.selectedIndex].value);
   }
 })
+
+getBtnCart.addEventListener('click', () => {
+  if (getItemsSection.style.display === 'none') {
+    getItemsSection.style.display = 'inherit';
+    getCartSection.style.display = 'none';
+
+  } else {
+    getItemsSection.style.display = 'none';
+    getCartSection.style.display = 'inherit';
+  }
+
+});
 
 window.onload = () => {
   showProductItems('tudo')
